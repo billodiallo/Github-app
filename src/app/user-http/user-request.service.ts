@@ -34,6 +34,20 @@ export class UserRequestService {
      
     }
 
+    let promise =new Promise((resolve,reject)=>{
+      this.http.get<ApiResponse>('https://api.github.com/users/' + userName+'?access_token='+ environment.apikey).toPromise().then(response=>{
+          
+          this.user.name=response.name
+          this.user.avatar_url=response.avatar_url
+          this.user.location=response.location
+          this.user.followers=response.followers
+          this.user.following=response.following
+          this.user.public_repos=response.public_repos
+          this.user.html_url=response.html_url
+         
+        
+          resolve()
+      },
       error=>{
               this.user.name="Sorry the user name can not be found!"
               this.user.avatar_url="??????????????????????"
