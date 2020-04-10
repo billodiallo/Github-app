@@ -13,7 +13,7 @@ export class UserRequestService {
   //all: Repository[];
 
   constructor(private http:HttpClient) {
-    this.user=new User("","","",0,0,0,"",new Date())
+    this.user=new User("","","",0,0,0,"","","",new Date())
    this.repository= []
    //this.all=[];
    }
