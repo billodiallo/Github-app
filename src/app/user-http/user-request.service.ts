@@ -48,7 +48,13 @@ export class UserRequestService {
         
           resolve()
       },
-      
+      error=>{
+        this.user.name="Sorry the user name can not be found!"
+        this.user.avatar_url="??????????????????????"
+
+        reject(error)
+    }
+)
   })
 
   return promise
