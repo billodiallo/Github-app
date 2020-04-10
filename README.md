@@ -1,10 +1,9 @@
 
-#### Quotes, March 31th 2020
+#### Github search App, April 10th 2020
 #### By **Mamadou Billo Diallo**
 
 ## Description
-- An application that enables users to add quotes,delete quotes.You can also be able to see already existing and there author and can upvote and downvote quotes.
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7
+-  this is the github search app, where you will search the github user's username and click on search and then his/her name will be displayed with the number of followers, the number of followings and his/her location and also the number of repositories his/her has! you can also click on link to the github to see the descriptions of his/her repositories!is project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7
 
 
 ## Technologies Used
