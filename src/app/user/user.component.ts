@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
-  providers:[UsersService,UserRequestService] 
+   
 })
 export class UserComponent implements OnInit {
 
