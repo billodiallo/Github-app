@@ -29,6 +29,8 @@ export class UserRequestService {
       following:number;
       public_repos:number;
       html_url:string;
+      apikey:string;
+      production:boolean;
       
       
      
