@@ -17,6 +17,22 @@ export class UserRequestService {
    this.repository= []
    //this.all=[];
    }
+   userRequest(userInput){
+  
+    var userName=userInput;
+    
+    interface ApiResponse{
+      name:string;
+      avatar_url:string;
+      location:string;
+      followers:number;
+      following:number;
+      public_repos:number;
+      html_url:string;
+      
+      
+     
+    }
 
     let promise =new Promise((resolve,reject)=>{
       this.http.get<ApiResponse>('https://api.github.com/users/' + userName+'?access_token='+ environment.apikey).toPromise().then(response=>{
