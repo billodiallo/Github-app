@@ -7,22 +7,16 @@ import {environment} from '../../environments/environment'
 @Injectable({
   providedIn: 'root'
 })
-   userRequest(userInput){
-  
-    var userName=userInput;
-    
-    interface ApiResponse{
-      name:string;
-      avatar_url:string;
-      location:string;
-      followers:number;
-      following:number;
-      public_repos:number;
-      html_url:string;
-      
-      
-     
-    }
+export class UserRequestService {
+  user:User;
+  repository:Repository[];
+  //all: Repository[];
+
+  constructor(private http:HttpClient) {
+    this.user=new User("","","",0,0,0,"",new Date())
+   this.repository= []
+   //this.all=[];
+   }
 
     let promise =new Promise((resolve,reject)=>{
       this.http.get<ApiResponse>('https://api.github.com/users/' + userName+'?access_token='+ environment.apikey).toPromise().then(response=>{
