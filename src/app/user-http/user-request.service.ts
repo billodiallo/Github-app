@@ -88,7 +88,7 @@ repositoryrequest(userInput){
         resolve()
     },
     error=>{
-            // this.repository.name="Sorry the repository can not be found!"
+            // this.repository.name="Sorry the repository can not be found! Please enter a valid Username"
             // this.repository.description="??????????????????????"
 
             reject(error)
