@@ -26,13 +26,4 @@ export class UserComponent implements OnInit {
          this.usersService.repositoryrequest(this.userName)
          
 }
-  ngOnInit() {
-    
-      this.usersService.userRequest('billodiallo')
-      this.usersService.repositoryrequest('billodiallo')
-           
-      this.user=this.usersService.user
-      this.repository=this.usersService.repository
-      console.log(this.repository)
-  }  
-  }
+  
