@@ -7,16 +7,6 @@ import {environment} from '../../environments/environment'
 @Injectable({
   providedIn: 'root'
 })
-export class UserRequestService {
-  user:User;
-  repository:Repository[];
-  //all: Repository[];
-
-  constructor(private http:HttpClient) {
-    this.user=new User("","","",0,0,0,"",new Date())
-   this.repository= []
-   //this.all=[];
-   }
    userRequest(userInput){
   
     var userName=userInput;
