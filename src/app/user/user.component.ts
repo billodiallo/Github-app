@@ -12,16 +12,8 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./user.component.css'],
   providers:[UsersService,UserRequestService] 
 })
-export class UserComponent implements OnInit {
 
-  user:User;
-  repository:Repository[];
-
-  userName=""
-  constructor(private usersService:UserRequestService){
-  
-  }
-  submitUser(){
+submitUser(){
          this.usersService.userRequest(this.userName)
          this.usersService.repositoryrequest(this.userName)
          
