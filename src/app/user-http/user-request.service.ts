@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http'
 import {User}from '../user-class/user'
 import {Repository} from '../repository-class/repository'
 //import{DateCountPipe} from '../date-count.pipe'
-import {environment} from '../../environments/environment'
+import {environment} from '../../environments/environment.prod'
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +11,9 @@ export class UserRequestService {
   user:User;
   repository:Repository[];
   apikey:'1aac104d8a2e871d03860c88a68a2cf21b1dbaf5';
+  accessToken:'';
   //all: Repository[];
+  
 
   constructor(private http:HttpClient) {
     this.user=new User("","","",0,0,0,"","",new Date())
@@ -21,6 +23,7 @@ export class UserRequestService {
    userRequest(userInput){
   
     var userName=userInput;
+    
     
     interface ApiResponse{
       name:string;
@@ -38,7 +41,7 @@ export class UserRequestService {
     }
 
     let promise =new Promise((resolve,reject)=>{
-      this.http.get<ApiResponse>('https://api.github.com/users/' + userName+'?access_token='+ environment.apikey).toPromise().then(response=>{          
+      this.http.get<ApiResponse>(`https://api.github.com/users/${userName}?access_token=${this.accessToken}`).toPromise().then(response=>{          
           this.user.name=response.name
           this.user.avatar_url=response.avatar_url
           this.user.location=response.location
