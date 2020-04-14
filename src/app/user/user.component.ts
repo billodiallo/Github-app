@@ -31,7 +31,7 @@ ngOnInit() {
     
   this.usersService.userRequest('billodiallo')
   this.usersService.repositoryrequest('billodiallo')
-       
+     this.submitUser()  
   this.user=this.usersService.user
   this.repository=this.usersService.repository
   console.log(this.repository)

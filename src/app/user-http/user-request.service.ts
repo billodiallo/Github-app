@@ -10,6 +10,7 @@ import {environment} from '../../environments/environment'
 export class UserRequestService {
   user:User;
   repository:Repository[];
+  apikey:'1aac104d8a2e871d03860c88a68a2cf21b1dbaf5';
   //all: Repository[];
 
   constructor(private http:HttpClient) {
@@ -75,7 +76,7 @@ repositoryrequest(userInput){
   }
 
   let promises =new Promise((resolve,reject)=>{
-    this.http.get<ApiResponse>('https://api.github.com/users/'+userName+'/repos?access_token='+ environment.apikey).toPromise().then(response=>{
+    this.http.get<ApiResponse>('https://api.github.com/users/'+userName+'/repos?access_token='+ this.apikey).toPromise().then(response=>{
         for (var i in response){
           console.log(i)
           this.repository.push(new Repository(response[i].name,response[i].description))
