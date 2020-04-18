@@ -4,7 +4,7 @@ import {UsersService} from '../user-service/users.service';
 import {UserRequestService} from '../user-http/user-request.service';
 import {User} from '../user-class/user';
 import {Repository} from '../repository-class/repository'
-import { environment } from '../../environments/environment';
+import { environment } from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-user',
@@ -31,7 +31,7 @@ ngOnInit() {
     
   this.usersService.userRequest('billodiallo')
   this.usersService.repositoryrequest('billodiallo')
-     this.submitUser()  
+  this.submitUser()  
   this.user=this.usersService.user
   this.repository=this.usersService.repository
   console.log(this.repository)

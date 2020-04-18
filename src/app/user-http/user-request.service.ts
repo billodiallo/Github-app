@@ -10,14 +10,13 @@ import {environment} from '../../environments/environment'
 export class UserRequestService {
   user:User;
   repository:Repository[];
-  apikey:'c43207a52a3c80cb86f7c4559cac879188b613a9';
   //all: Repository[];
 
   constructor(private http:HttpClient) {
     this.user=new User("","","",0,0,0,"","",new Date())
    this.repository= []
    //this.all=[];
-   } 
+   }
    userRequest(userInput){
   
     var userName=userInput;
@@ -30,15 +29,14 @@ export class UserRequestService {
       following:number;
       public_repos:number;
       html_url:string;
-      apikey:string;
-      production:boolean;
       
       
      
     }
 
     let promise =new Promise((resolve,reject)=>{
-      this.http.get<ApiResponse>('https://api.github.com/users/' + userName+'?access_token='+ this.apikey).toPromise().then(response=>{          
+      this.http.get<ApiResponse>('https://api.github.com/users/' + userName+'?access_token='+ environment.apikey).toPromise().then(response=>{
+          
           this.user.name=response.name
           this.user.avatar_url=response.avatar_url
           this.user.location=response.location
@@ -51,12 +49,12 @@ export class UserRequestService {
           resolve()
       },
       error=>{
-        this.user.name="Sorry the user name can not be found!"
-        this.user.avatar_url="??????????????????????"
+              this.user.name="Sorry the user name can not be found!"
+              this.user.avatar_url="??????????????????????"
 
-        reject(error)
-    }
-)
+              reject(error)
+          }
+      )
   })
 
   return promise
@@ -67,7 +65,7 @@ repositoryrequest(userInput){
   
   var userName=userInput;
   
-  interface ApiResponse{
+  interface ApiReposito{
     name:string;
     description:string;
     
@@ -76,7 +74,7 @@ repositoryrequest(userInput){
   }
 
   let promises =new Promise((resolve,reject)=>{
-    this.http.get<ApiResponse>('https://api.github.com/users/'+userName+'/repos?access_token='+ this.apikey).toPromise().then(response=>{
+    this.http.get<ApiReposito>('https://api.github.com/users/'+userName+'/repos?access_token='+ environment.apikey).toPromise().then(response=>{
         for (var i in response){
           console.log(i)
           this.repository.push(new Repository(response[i].name,response[i].description))
@@ -90,7 +88,7 @@ repositoryrequest(userInput){
         resolve()
     },
     error=>{
-            // this.repository.name="Sorry the repository can not be found! Please enter a valid Username"
+            // this.repository.name="Sorry the repository can not be found!"
             // this.repository.description="??????????????????????"
 
             reject(error)
